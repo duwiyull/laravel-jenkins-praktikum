@@ -1,21 +1,19 @@
-node {
+pipeline {
+    agent any
 
- stage('Clone Repository') {
-  checkout scm
- }
+    stages {
 
- stage('Test Jenkins') {
-  sh 'echo "Jenkins Pipeline berhasil dijalankan"'
- }
+        stage('Clone Repository') {
+            steps {
+                checkout scm
+            }
+        }
 
-}node {
+        stage('Test Jenkins') {
+            steps {
+                sh 'echo "Jenkins Pipeline berhasil dijalankan"'
+            }
+        }
 
- stage('Clone Repository') {
-  checkout scm
- }
-
- stage('Test Jenkins') {
-  sh 'echo "Jenkins Pipeline berhasil dijalankan"'
- }
-
+    }
 }
