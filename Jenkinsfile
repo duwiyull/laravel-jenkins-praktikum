@@ -15,5 +15,13 @@ pipeline {
             }
         }
 
+        stage('Deploy') {
+            steps {
+                sshagent(['ssh-prod']) {
+                    sh 'echo "Deploy menggunakan SSH berhasil"'
+                }
+            }
+        }
+
     }
 }
